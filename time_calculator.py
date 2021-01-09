@@ -16,5 +16,9 @@ def add_time(start, duration, dayOfWeek=""):
   
 
   new_time_in_minutes = total_start_minutes + total_minutes_to_add
-  new_time = str(new_time_in_minutes / 60) + ":" + str(new_time_in_minutes % 60)
+  if new_time_in_minutes % 60 <10:
+    remainder_minutes = "0" + str(new_time_in_minutes % 60)
+  else:
+    remainder_minutes = str(new_time_in_minutes % 60)
+  new_time = str(int(new_time_in_minutes / 60)) + ":" + remainder_minutes
   return new_time
